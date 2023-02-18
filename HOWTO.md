@@ -1,7 +1,11 @@
 ### 1. Create the project
 
-```javascript
+```sh
 ng new gringotts-web
+```
+
+```sh
+ng serve
 ```
 
 ### 2. Configurar ESLint y Prettier
@@ -21,10 +25,25 @@ No es necesario añadir el archivo `.vscode/settings.json`. Seguir los siguiente
 ### 3. Follow the rules for the project structure
 
 Doc [link](https://angular-folder-structure.readthedocs.io/en/latest/overview.html)
+/src/app/layers -> Aqui estarán las vistas de la app (ej: login, main...)
+ng generate component layers/login
+ng generate component layers/accountancy-list
+/src/app/components -> Aqui estarán los componentes reutilizables (inputs, botones...)
+
+ng generate service data/services/auth
+ng generate guard data/guards/auth
 
 ### 4. Charts
 
 Doc [link](https://apexcharts.com/angular-chart-demos/)
 
 ### 5. Angular material
+
 Install [link](https://material.angular.io/guide/getting-started)
+
+[Schematics](https://material.angular.io/guide/schematics)
+Ej. navigation:
+
+```sh
+ng generate @angular/material:navigation layers/main
+```
