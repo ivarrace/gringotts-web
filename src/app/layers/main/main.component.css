@@ -19,3 +19,9 @@
 #main-container {
   padding: 10px 16px;
 }
+
+.toolbar-button-container {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}

@@ -21,4 +21,8 @@ export class MainComponent {
     private breakpointObserver: BreakpointObserver,
     public authService: AuthService
   ) {}
+
+  logout() {
+    this.authService.logout();
+  }
 }

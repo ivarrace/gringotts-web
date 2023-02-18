@@ -23,9 +23,31 @@
         (click)="drawer.toggle()"
         *ngIf="isHandset$ | async"
       >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        <mat-icon aria-label="Side nav toggle icon" color="accent"
+          >menu</mat-icon
+        >
       </button>
       <span>Gringotts</span>
+      <div class="toolbar-button-container">
+        <button
+          [matMenuTriggerFor]="menu"
+          mat-icon-button
+          color="accent"
+          aria-label="Settings"
+        >
+          <mat-icon>settings</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item disabled>
+            <mat-icon>manage_accounts</mat-icon>
+            <span>Profile</span>
+          </button>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </div>
     </mat-toolbar>
     <!-- Add Content Here -->
     <div id="main-container">
