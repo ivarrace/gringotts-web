@@ -1,3 +1,7 @@
+#main-container {
+  padding: 40px 16px;
+}
+
 .parent {
   max-width: 300px;
   display: flex;

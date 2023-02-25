@@ -19,10 +19,10 @@ export class AuthService {
   }
 
   logout() {
+    this.router.navigate(['login']);
     const removeToken = sessionStorage.removeItem('access_token');
     if (removeToken == null) {
       sessionStorage.removeItem('expires_at');
-      this.router.navigate(['login']);
     }
   }
 }

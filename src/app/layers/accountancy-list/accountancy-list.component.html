@@ -1,1 +1,31 @@
-<p>accountancy-list works!</p>
+<mat-list>
+  <mat-card class="accountancy-list-item">
+    <div style="display: flex">
+      <div>
+        <mat-card-title-group>
+          <mat-card-title> Personal </mat-card-title>
+          <mat-card-subtitle> 01/01/1970 </mat-card-subtitle>
+        </mat-card-title-group>
+      </div>
+      <div style="flex-grow: 1"></div>
+      <button
+        [matMenuTriggerFor]="menu"
+        mat-icon-button
+        color="primary"
+        aria-label="Accountancy actions"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item disabled>
+          <mat-icon>edit</mat-icon>
+          <span>Editar</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>delete</mat-icon>
+          <span>Eliminar</span>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-card>
+</mat-list>

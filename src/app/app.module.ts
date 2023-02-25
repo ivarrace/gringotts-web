@@ -18,13 +18,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
+import { MovementListComponent } from './layers/movement-list/movement-list.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     LoginComponent,
-    AccountancyListComponent
+    AccountancyListComponent,
+    MovementListComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,9 @@ import { MatMenuModule } from '@angular/material/menu';
     ReactiveFormsModule,
     MatInputModule,
     MatTabsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDividerModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

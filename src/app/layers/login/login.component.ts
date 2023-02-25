@@ -60,8 +60,6 @@ export class LoginComponent {
     }
     console.warn('Login form data', this.loginform.value);
     //this.loginform.reset();
-    //this.authService.toggle();
-
     this.authService.login(this.loginform.value);
   }
 
@@ -73,8 +71,6 @@ export class LoginComponent {
     this.registerFormError = '';
     console.warn('Register form data', this.registerform.value);
     //this.loginform.reset();
-    //this.authService.toggle();
-
     //this.authService.login(this.loginform.value);
   }
 }

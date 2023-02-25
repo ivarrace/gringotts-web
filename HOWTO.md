@@ -28,6 +28,7 @@ Doc [link](https://angular-folder-structure.readthedocs.io/en/latest/overview.ht
 /src/app/layers -> Aqui estarán las vistas de la app (ej: login, main...)
 ng generate component layers/login
 ng generate component layers/accountancy-list
+ng generate component layers/movement-list
 /src/app/components -> Aqui estarán los componentes reutilizables (inputs, botones...)
 
 ng generate service data/services/auth

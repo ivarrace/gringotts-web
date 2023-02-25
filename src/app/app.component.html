@@ -1,1 +1,9 @@
-<app-main />
+<ng-container *ngIf="authService.isLoggedIn; then main else login" />
+
+<ng-template #main>
+    <app-main/>
+</ng-template>
+
+<ng-template #login>
+    <app-login></app-login>
+</ng-template>

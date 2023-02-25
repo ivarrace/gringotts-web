@@ -1,4 +1,4 @@
-<mat-sidenav-container *ngIf="authService.isLoggedIn" class="sidenav-container">
+<mat-sidenav-container class="sidenav-container">
   <mat-sidenav
     #drawer
     class="sidenav"
@@ -10,8 +10,10 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="/accountancies">Accountancies</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item href="/movements">Movements</a>
+      <mat-divider/>
+      <a mat-list-item href="#">Empty Link</a>
+      <a mat-list-item href="#">Empty Link</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -55,7 +57,3 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-<!-- ROUTER-OUTLET if not logged in-->
-<div id="main-container" *ngIf="!authService.isLoggedIn">
-  <router-outlet></router-outlet>
-</div>
