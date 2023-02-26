@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { GroupType } from 'src/app/data/enums/group-type';
+import { MovementService } from 'src/app/data/services/movement.service';
 import { Movement } from 'src/app/data/types/movement';
 
 @Component({
@@ -8,19 +10,23 @@ import { Movement } from 'src/app/data/types/movement';
   styleUrls: ['./movement-list.component.css']
 })
 export class MovementListComponent {
-  viewMovement() {
-    console.warn('VIEW!');
-    console.warn(mockMovement);
+  groupTypeOptions: typeof GroupType = GroupType;
+
+  constructor(
+    public router: Router,
+    private movementService: MovementService
+  ) {}
+
+  movementList: Movement[] = this.movementService.getAllMovements();
+  //TODO fix date in html list
+  viewMovement(movement: Movement) {
+    this.router.navigate(['movements/' + movement.id], {
+      state: { movement }
+    });
+  }
+
+  add() {
+    //TODO fix route by id if not found
+    this.router.navigate(['/forms/movement']);
   }
 }
-
-const mockMovement: Movement = {
-  id: '001',
-  amount: 1,
-  date: '01/01/1970',
-  info: 'Test 1',
-  accountancyKey: 'personal',
-  groupType: GroupType.Expense,
-  groupKey: 'coche',
-  categoryKey: 'gasolina'
-};

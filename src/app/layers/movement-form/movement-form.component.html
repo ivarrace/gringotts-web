@@ -82,12 +82,17 @@
       class="delete-button"
       *ngIf="!isNewMovement"
     >
-      <button mat-raised-button color="warn" (click)="delete()">
+      <button mat-raised-button color="warn" (click)="delete()" type="button">
         <mat-icon>delete</mat-icon>
       </button>
     </span>
     <div fxFlex="100%" align="right">
-      <button mat-stroked-button color="primary" (click)="cancel()">
+      <button
+        mat-stroked-button
+        color="primary"
+        (click)="cancel()"
+        type="button"
+      >
         Cancelar
       </button>
       <button mat-raised-button color="primary" type="submit">

@@ -26,6 +26,11 @@ const routes: Routes = [
         path: '',
         component: MovementListComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: ':movementId',
+        component: MovementFormComponent,
+        canActivate: [AuthGuard]
       }
     ]
   },

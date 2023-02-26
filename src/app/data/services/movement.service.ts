@@ -15,9 +15,9 @@ export class MovementService {
 
 let mockMovement: Movement = {
   id: '001',
-  amount: 1,
+  amount: 12,
   date: '01/01/1970',
-  info: 'Test 1',
+  info: 'Estación de servicio',
   accountancyKey: 'personal',
   groupType: GroupType.Expense,
   groupKey: 'coche',
@@ -28,12 +28,12 @@ let mockMovementList: Movement[] = [
   mockMovement,
   {
     id: '002',
-    amount: 2,
+    amount: 215,
     date: '01/01/1970',
-    info: 'test 2',
+    info: 'Paga de navidad',
     accountancyKey: 'personal',
-    groupType: GroupType.Expense,
-    groupKey: 'coche',
-    categoryKey: 'gasolina'
+    groupType: GroupType.Income,
+    groupKey: 'trabajo',
+    categoryKey: 'extras'
   }
 ];

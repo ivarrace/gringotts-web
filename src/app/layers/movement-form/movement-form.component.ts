@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 import { GroupType } from 'src/app/data/enums/group-type';
 import { AccountancyService } from 'src/app/data/services/accountancy.service';
 import {
@@ -9,7 +10,7 @@ import {
 } from 'src/app/data/types/accountancy-info';
 import { Movement } from 'src/app/data/types/movement';
 
-let newMovement: Movement = {
+let emptyMovement: Movement = {
   id: undefined,
   amount: undefined,
   date: '',
@@ -26,10 +27,14 @@ let newMovement: Movement = {
   styleUrls: ['./movement-form.component.css']
 })
 export class MovementFormComponent {
-  constructor(private accountancyService: AccountancyService) {}
+  constructor(
+    private location: Location,
+    private accountancyService: AccountancyService
+  ) {}
 
-  @Input()
-  movement: Movement = newMovement;
+  movement: Movement = (this.location.getState() as any).movement
+    ? (this.location.getState() as any).movement
+    : emptyMovement;
   accountancyList: AccountancyInfo[] =
     this.accountancyService.getUserAccountancyInfoList();
 
@@ -98,10 +103,11 @@ export class MovementFormComponent {
   }
 
   cancel(): void {
-    console.warn('Cancel edit');
+    //TODO check changes in form to alert
+    this.location.back();
   }
 
   delete(): void {
-    console.warn('Delete movement');
+    console.error('Delete movement');
   }
 }

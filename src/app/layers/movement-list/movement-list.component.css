@@ -4,11 +4,11 @@
   margin-bottom: 5px;
 }
 
-.income-icon {
+.income-color {
   color: green;
 }
 
-.outcome-icon {
+.outcome-color {
   color: red;
 }
 
@@ -32,4 +32,9 @@
 .movement-info {
   margin-left: 7px;
   font-size: 15px;
+}
+
+.md-fab-bottom-right {
+  position: fixed !important;
+  right: 15px; /* Add this and change value to set the margin you want */
 }
