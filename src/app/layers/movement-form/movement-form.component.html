@@ -1,0 +1,99 @@
+<mat-card class="movement-form">
+  <mat-card-title
+    >{{ isNewMovement ? 'Nuevo' : 'Editar' }} movimiento</mat-card-title
+  >
+  <form [formGroup]="movementForm" (ngSubmit)="onSubmit()">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <div fxFlex="100%">
+        <mat-form-field appearance="outline" class="form-field full-width">
+          <mat-label>Cantidad</mat-label>
+          <input matInput formControlName="amount" name="amount" />
+        </mat-form-field>
+      </div>
+      <div fxFlex="100%">
+        <mat-form-field appearance="outline" class="form-field full-width">
+          <mat-label>Fecha</mat-label>
+          <input matInput formControlName="date" name="date" />
+        </mat-form-field>
+      </div>
+      <div fxFlex="100%">
+        <mat-form-field appearance="outline" class="form-field full-width">
+          <mat-label>Detalles</mat-label>
+          <textarea matInput formControlName="info"></textarea>
+        </mat-form-field>
+      </div>
+      <div fxFlex="100%">
+        <mat-form-field appearance="outline" class="form-field full-width">
+          <mat-label>Accountancy</mat-label>
+          <mat-select
+            formControlName="accountancy"
+            (selectionChange)="updateGroupOptions()"
+          >
+            <mat-option
+              *ngFor="let item of accountancyOptions"
+              [value]="item.id"
+              >{{ item.name }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="100%" *ngIf="this.movementForm.value.accountancy">
+        <mat-form-field appearance="outline" class="form-field full-width">
+          <mat-label>Group Type</mat-label>
+          <mat-select
+            formControlName="groupType"
+            (selectionChange)="updateGroupOptions()"
+          >
+            <mat-option [value]="groupTypeOptions.Income"> Ingreso </mat-option>
+            <mat-option [value]="groupTypeOptions.Expense"> Gasto </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="100%" *ngIf="this.movementForm.value.groupType">
+        <mat-form-field appearance="outline" class="form-field full-width">
+          <mat-label>Group</mat-label>
+          <mat-select
+            formControlName="group"
+            (selectionChange)="updateCategoryOptions()"
+          >
+            <mat-option *ngFor="let item of groupOptions" [value]="item.id">{{
+              item.name
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex="100%" *ngIf="this.movementForm.value.group">
+        <mat-form-field appearance="outline" class="form-field full-width">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category">
+            <mat-option
+              *ngFor="let item of categoryOptions"
+              [value]="item.id"
+              >{{ item.name }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <span
+      fxFlex="100%"
+      align="left"
+      class="delete-button"
+      *ngIf="!isNewMovement"
+    >
+      <button mat-raised-button color="warn" (click)="delete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </span>
+    <div fxFlex="100%" align="right">
+      <button mat-stroked-button color="primary" (click)="cancel()">
+        Cancelar
+      </button>
+      <button mat-raised-button color="primary" type="submit">
+        {{ isNewMovement ? 'Guardar' : 'Actualizar' }}
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </form>
+</mat-card>

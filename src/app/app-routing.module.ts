@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './data/guards/auth.guard';
 import { AccountancyListComponent } from './layers/accountancy-list/accountancy-list.component';
 import { LoginComponent } from './layers/login/login.component';
+import { MovementFormComponent } from './layers/movement-form/movement-form.component';
 import { MovementListComponent } from './layers/movement-list/movement-list.component';
 
 const routes: Routes = [
@@ -24,6 +25,16 @@ const routes: Routes = [
       {
         path: '',
         component: MovementListComponent,
+        canActivate: [AuthGuard]
+      }
+    ]
+  },
+  {
+    path: 'forms',
+    children: [
+      {
+        path: 'movement',
+        component: MovementFormComponent,
         canActivate: [AuthGuard]
       }
     ]

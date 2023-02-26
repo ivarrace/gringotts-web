@@ -21,6 +21,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MovementListComponent } from './layers/movement-list/movement-list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MovementFormComponent } from './layers/movement-form/movement-form.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MainComponent,
     LoginComponent,
     AccountancyListComponent,
-    MovementListComponent
+    MovementListComponent,
+    MovementFormComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatTabsModule,
     MatMenuModule,
     MatDividerModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

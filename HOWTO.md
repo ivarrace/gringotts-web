@@ -29,10 +29,13 @@ Doc [link](https://angular-folder-structure.readthedocs.io/en/latest/overview.ht
 ng generate component layers/login
 ng generate component layers/accountancy-list
 ng generate component layers/movement-list
+ng generate component layers/movement-form
 /src/app/components -> Aqui estarán los componentes reutilizables (inputs, botones...)
 
 ng generate service data/services/auth
 ng generate guard data/guards/auth
+ng generate service data/services/movement
+ng generate service data/services/accountancy
 
 ### 4. Charts
 
