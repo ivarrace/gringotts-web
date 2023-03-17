@@ -20,13 +20,14 @@ export class MovementListComponent {
   movementList: Movement[] = this.movementService.getAllMovements();
   //TODO fix date in html list
   viewMovement(movement: Movement) {
-    this.router.navigate(['movements/' + movement.id], {
+    this.router.navigate(['movements/form'], {
       state: { movement }
     });
   }
 
-  add() {
-    //TODO fix route by id if not found
-    this.router.navigate(['/forms/movement']);
+  addMovement() {
+    this.router.navigate(['movements/form'], {
+      state: { movement: undefined }
+    });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { GroupType } from 'src/app/data/enums/group-type';
@@ -9,6 +9,7 @@ import {
   GroupInfo
 } from 'src/app/data/types/accountancy-info';
 import { Movement } from 'src/app/data/types/movement';
+import { MovementService } from 'src/app/data/services/movement.service';
 
 let emptyMovement: Movement = {
   id: undefined,
@@ -29,7 +30,8 @@ let emptyMovement: Movement = {
 export class MovementFormComponent {
   constructor(
     private location: Location,
-    private accountancyService: AccountancyService
+    private accountancyService: AccountancyService,
+    private movementService: MovementService
   ) {}
 
   movement: Movement = (this.location.getState() as any).movement

@@ -1,5 +1,8 @@
 .accountancy-list-item {
-  cursor: auto;
-  cursor: pointer;
+  cursor: default;
   margin-bottom: 5px;
+}
+.edit-card-button {
+  position: fixed !important;
+  right: 25px;
 }

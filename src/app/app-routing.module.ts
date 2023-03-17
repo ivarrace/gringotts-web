@@ -28,17 +28,7 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
-        path: ':movementId',
-        component: MovementFormComponent,
-        canActivate: [AuthGuard]
-      }
-    ]
-  },
-  {
-    path: 'forms',
-    children: [
-      {
-        path: 'movement',
+        path: 'form',
         component: MovementFormComponent,
         canActivate: [AuthGuard]
       }

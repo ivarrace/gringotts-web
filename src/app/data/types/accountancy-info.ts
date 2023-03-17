@@ -1,6 +1,8 @@
 export interface AccountancyInfo {
   id: string;
   name: string;
+  createdDate: string;
+  lastModified: string;
   incomes: GroupInfo[];
   expenses: GroupInfo[];
 }

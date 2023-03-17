@@ -1,31 +1,29 @@
 <mat-list>
-  <mat-card class="accountancy-list-item">
-    <div style="display: flex">
-      <div>
-        <mat-card-title-group>
-          <mat-card-title> Personal </mat-card-title>
-          <mat-card-subtitle> 01/01/1970 </mat-card-subtitle>
-        </mat-card-title-group>
-      </div>
-      <div style="flex-grow: 1"></div>
-      <button
-        [matMenuTriggerFor]="menu"
-        mat-icon-button
-        color="primary"
-        aria-label="Accountancy actions"
-      >
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item disabled>
+  <mat-card
+    class="accountancy-list-item"
+    *ngFor="let accountancy of accountancyList"
+  >
+    <mat-card-content>
+      <div class="edit-card-button">
+        <button
+          mat-icon-button
+          color="primary"
+          aria-label="Edit"
+          (click)="editAccountancy(accountancy)"
+        >
           <mat-icon>edit</mat-icon>
-          <span>Editar</span>
         </button>
-        <button mat-menu-item disabled>
-          <mat-icon>delete</mat-icon>
-          <span>Eliminar</span>
-        </button>
-      </mat-menu>
-    </div>
+      </div>
+      <div>
+        <h2>{{ accountancy.name }}</h2>
+      </div>
+      <div>Fecha creación: {{ accountancy.createdDate }}</div>
+      <div>Última edición: {{ accountancy.lastModified }}</div>
+    </mat-card-content>
   </mat-card>
+  <div fxFlex="100%" align="right">
+    <button mat-raised-button color="primary" (click)="addAccountancy()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
 </mat-list>

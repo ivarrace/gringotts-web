@@ -1,12 +1,18 @@
 <mat-list>
   <!--TODO agrupar por fechas-->
-  <div mat-subheader>01/01/1970</div>
-  <mat-card
-    class="movement-list-item"
-    *ngFor="let movement of movementList"
-    (click)="viewMovement(movement)"
-  >
+  <div mat-subheader>FILTROS!</div>
+  <mat-card class="movement-list-item" *ngFor="let movement of movementList">
     <mat-card-content>
+      <div class="edit-card-button">
+        <button
+          mat-icon-button
+          color="primary"
+          aria-label="Edit"
+          (click)="viewMovement(movement)"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
       <div class="movement-details">
         <span
           class="movement-amount"
@@ -17,7 +23,7 @@
           "
           >{{ movement.amount }}€</span
         >
-        <span class="movement-info"> {{ movement.info }}</span>
+        <span class="movement-date"> {{ movement.date }}</span>
       </div>
       <div class="movement-origin">
         <mat-icon
@@ -38,10 +44,13 @@
           {{ movement.categoryKey }}</span
         >
       </div>
+      <div class="movement-info">
+        {{ movement.info }}
+      </div>
     </mat-card-content>
   </mat-card>
   <div fxFlex="100%" align="right">
-    <button mat-raised-button color="primary" (click)="add()">
+    <button mat-raised-button color="primary" (click)="addMovement()">
       <mat-icon>add</mat-icon>
     </button>
   </div>

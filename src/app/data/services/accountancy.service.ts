@@ -16,6 +16,8 @@ let mockUserAccountancyList: AccountancyInfo[] = [
   {
     id: 'personal',
     name: 'Personal',
+    createdDate: '01/01/1970',
+    lastModified: '01/01/2000',
     incomes: [
       {
         id: 'trabajo',
@@ -42,5 +44,12 @@ let mockUserAccountancyList: AccountancyInfo[] = [
       }
     ]
   },
-  { id: 'compartida', name: 'Compartida', incomes: [], expenses: [] }
+  {
+    id: 'compartida',
+    name: 'Compartida',
+    createdDate: '01/01/1970',
+    lastModified: '01/01/2000',
+    incomes: [],
+    expenses: []
+  }
 ];
